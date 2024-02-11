@@ -22,6 +22,9 @@ app.use(pizzaRouter)
 
 // Route to handle form submissions
 
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "pizza-topper", "build")))
+
 app.use(express.static(path.join(__dirname, '../pizza-topper/build')))
 app.get('*', (req,res)=> res.sendFile(path.join(__dirname, '../pizza-topper/index.html')))
 
