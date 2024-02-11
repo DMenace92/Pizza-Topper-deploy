@@ -1,0 +1,162 @@
+.App {
+  text-align: center;
+  display: flex;
+  margin-top: 0px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.App {
+  display: flex;
+}
+
+.rightContainer {
+  flex: 1;
+  border:1px solid black;
+  width:50vw;
+  height:80vh;
+  padding:30px;
+}
+.leftContainer{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  /* border:1px solid black; */
+  width:50vw;
+  height:90vh;
+}
+.pizzaItem{
+  display: flex;
+  flex:2;
+  margin:5px;
+  border:1px solid black;
+  border-radius: 10px;
+  height:250px;
+  width:300px;
+  justify-content: space-between;
+}
+.meatSide{
+  /* display: flex; */
+  position: relative;
+  /* flex:2; */
+  float: right;
+  flex-direction: column;
+
+}
+.veggieSide{
+  position: relative;
+  /* display: flex; */
+  /* margin-left:80px; */
+  /* flex:1; */
+  float: left;
+  flex-direction: column;
+
+}
+.buttonDesign{
+  /* position: absolute; */
+  height:50px;
+  width:60px;
+  flex-direction: row;
+  float: left;
+  position: relative;
+  bottom:-190px;
+  right:50px;
+  
+/* display: flex; */
+/* position: relative; */
+
+/* bottom: 0px; */
+  
+}
+.buttonDesign1{
+  /* position: absolute; */
+  height:50px;
+  flex-direction: row;
+  float: left;
+  position: relative;
+  bottom:-190px;
+  right:10px;
+/* display: flex; */
+/* position: relative; */
+
+/* bottom: 0px; */
+  
+}
+.toppingCategory {
+  display: flex;
+  justify-content: space-between;
+}
+
+.meatToppings,
+.veggieToppings {
+  margin-bottom: 10px;
+ 
+}
+
+.toppingLabel {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* .rightContainer{
+  border:1px solid black;
+  width:50vw;
+  height:90vh;
+  margin-top: 0px;
+  
+}
+.meatToppings{
+  width:100px;
+  display: flex;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  
+/* } */
+/* .veggieToppings{
+  width:100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.leftContainer{
+  padding:0px;
+  border:1px solid black;
+  width:50vw;
+  height:90vh;
+}  */
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
