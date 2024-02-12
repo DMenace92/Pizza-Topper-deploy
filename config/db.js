@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose')
 const config = require('../config/config')
-
+const MONGODB_URI = config
 
 let newConfig = config;
 
