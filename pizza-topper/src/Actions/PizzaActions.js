@@ -50,7 +50,7 @@ export const createPizza = (pizza) => dispatch => {
         createPizzaLoading()
 
     )
-    fetch('http://localhost:9000/create/pizza', {
+    fetch('https://pizza-topper-dcb2c6a33c29.herokuapp.com/create/pizza', {
         method: "POST",
         body: JSON.stringify(pizza),
         headers: {
@@ -104,7 +104,7 @@ export const updatePizza = (pizzaId, newPizza) => dispatch => {
         updatePizzaLoading()
 
     )
-    fetch(`http://localhost:9000/update/pizza/${pizzaId}`, {
+    fetch(`https://pizza-topper-dcb2c6a33c29.herokuapp.com/update/pizza/${pizzaId}`, {
         method: "PATCH",
         body: JSON.stringify(newPizza),
         headers: {
@@ -134,7 +134,7 @@ export const deletePizza = (pizza) => dispatch => {
         deletePizzaLoading()
 
     )
-    fetch(`http://localhost:9000/delete/pizza/${pizza}`, {
+    fetch(`https://pizza-topper-dcb2c6a33c29.herokuapp.com/delete/pizza/${pizza}`, {
         method: "DELETE",
         // body: JSON.stringify(pizza),
         headers: {
