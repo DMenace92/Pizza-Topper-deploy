@@ -77,7 +77,7 @@ export const fetchPizza = (pizza) => dispatch => {
     dispatch(
         fetchPizzaLoading()
     )
-    fetch('http://localhost:9000/fetch/pizza', {
+    fetch('https://pizza-topper-dcb2c6a33c29.herokuapp.com/fetch/pizza', {
         method: "GET",
         body: JSON.stringify(pizza),
         headers: {
