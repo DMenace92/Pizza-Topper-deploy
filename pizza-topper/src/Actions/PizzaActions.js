@@ -1,3 +1,6 @@
+const ApiCall = process.env.REACT_APP_API_CALL
+console.log(ApiCall)
+// import env from "react-dotenv"
 //create drug
 export const CREATE_PIZZA_SUCCESS = "CREATE_PIZZA_SUCCESS";
 const createPizzaSuccess = (pizza) => ({
@@ -56,7 +59,7 @@ const deletePizzaError = () => ({ type: DELETE_PIZZA_ERROR });
 
 export const createPizza = (pizza) => (dispatch) => {
   dispatch(createPizzaLoading());
-  fetch("https://mphw36-9000.csb.app/create/pizza", {
+  fetch(`${ApiCall}/create/pizza`, {
     method: "POST",
     body: JSON.stringify(pizza),
     headers: {
@@ -75,7 +78,7 @@ export const createPizza = (pizza) => (dispatch) => {
 //fetch Drug thunk
 export const fetchPizza = (pizza) => (dispatch) => {
   dispatch(fetchPizzaLoading());
-  fetch("https://mphw36-9000.csb.app/fetch/pizza", {
+  fetch(`${ApiCall}/fetch/pizza`, {
     method: "GET",
     body: JSON.stringify(pizza),
     headers: {
@@ -95,7 +98,7 @@ export const fetchPizza = (pizza) => (dispatch) => {
 export const updatePizza = (pizzaId, newPizza) => (dispatch) => {
   console.log(pizzaId, newPizza, "update actions");
   dispatch(updatePizzaLoading());
-  fetch(`https://mphw36-9000.csb.app/update/pizza/${pizzaId}`, {
+  fetch(`${ApiCall}/update/pizza/${pizzaId}`, {
     method: "PATCH",
     body: JSON.stringify(newPizza),
     headers: {
@@ -117,7 +120,7 @@ export const updatePizza = (pizzaId, newPizza) => (dispatch) => {
 //Delete Drug Thunk
 export const deletePizza = (pizza) => (dispatch) => {
   dispatch(deletePizzaLoading());
-  fetch(`https://mphw36-9000.csb.app/delete/pizza/${pizza}`, {
+  fetch(`${ApiCall}/delete/pizza/${pizza}`, {
     method: "DELETE",
     // body: JSON.stringify(pizza),
     headers: {

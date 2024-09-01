@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import PizzaComponent from '../Component/PizzaComponent';
-import { createPizza, fetchPizza, updatePizza, deletePizza } from '../Actions/PizzaActions'
+import PizzaComponent from '../Component/PizzaSelector/PizzaComponent'
+import { createPizza, updatePizza, deletePizza } from '../Actions/PizzaActions'
 
 
 const mapStateToProps = ({ pizza }) => {
@@ -13,9 +13,9 @@ const mapStateToProps = ({ pizza }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPizza: (pizza) => {
-            dispatch(fetchPizza(pizza))
-        },
+        // fetchPizza: (pizza) => {
+        //     dispatch(fetchPizza(pizza))
+        // },
         createPizza:(pizza)=>{
             dispatch(createPizza(pizza))
         },

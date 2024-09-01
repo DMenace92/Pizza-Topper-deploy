@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import PizzaContainer from './Container/pizzaContainer';
+import { Route, Routes } from 'react-router-dom'
+import MainPage from './Pages/MainPage/MainPage';
 import './App.css';
 
 function App() {
 
   return (
     <div className="App">
-      <PizzaContainer/>
+      <Routes>
+        <Route path="/" element={<MainPage/>}/>
+      </Routes>
 
     </div>
   );

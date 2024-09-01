@@ -2,7 +2,10 @@
   text-align: center;
   display: flex;
   margin-top: 0px;
+  background-image: url('./utils/pizzaOven.png') ;
+  background-size:cover;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -14,7 +17,7 @@
 
 .rightContainer {
   flex: 1;
-  border:1px solid black;
+  /* border:1px solid black; */
   width:50vw;
   height:80vh;
   padding:30px;
@@ -32,7 +35,7 @@
   display: flex;
   flex:2;
   margin:5px;
-  border:1px solid black;
+  /* border:1px solid black; */
   border-radius: 10px;
   height:250px;
   width:300px;

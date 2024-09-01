@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const path = require('path')
 require("./config/db")
+require('dotenv').config();
+
 
 
 
