@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import Styles from './PizzaComponent.module.css';
+import React, { useRef } from "react";
+import Styles from "./PizzaComponent.module.css";
 
-const PizzaContainer = ({ onToppingChange }) => {
+const PizzaContainer = (props) => {
   // Refs for each checkbox
   const pepperoniCheckbox = useRef(null);
   const sausageCheckbox = useRef(null);
@@ -12,8 +12,21 @@ const PizzaContainer = ({ onToppingChange }) => {
   const pineappleCheckbox = useRef(null);
   const spinachCheckbox = useRef(null);
 
-  const handleInputChange = () => {
+  const { createNewMessage, onToppingChange } = props;
+  console.log(props);
+
+  //create new messages will take checked and the name string
+
+  const handleInputChange = (e) => {
     // Get the current checked state of each checkbox
+    console.log(e.target);
+    console.log(e.target.name);
+    console.log(e.target.checked);
+    createNewMessage(
+      e.target.name + e.target.checked
+        ? " added to pizza"
+        : " removed from pizza"
+    );
     const selectedToppings = {
       pepperoni: pepperoniCheckbox.current.checked,
       sausage: sausageCheckbox.current.checked,
@@ -45,7 +58,7 @@ const PizzaContainer = ({ onToppingChange }) => {
         <div className={Styles.pizzaHeadder}>
           <h4 className={Styles.customizeText}>Customize your pie!</h4>
           <div className={Styles.workMagicLine}>
-          <h6 className={Styles.magicLine}>_________________</h6>
+            <h6 className={Styles.magicLine}>_________________</h6>
           </div>
         </div>
         <div className={Styles.pizzaBody}>

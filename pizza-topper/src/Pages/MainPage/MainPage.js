@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 // import PizzaContainer from '../../Component/PizzaSelector/PizzaComponent'
 import PizzaContainer from '../../Container/pizzaContainer'
 // import TerminalView from '../../Component/TerminalView/TerminalView'
-import TerminalView from '../../Container/PizzaTerminalFetch'
+// import TerminalView from '../../Container/PizzaTerminalFetch'
+import TerminalView from '../../Container/messageContainer'
 import Styles from './MainPage.module.css'
 
 const MainPage =()=>{
