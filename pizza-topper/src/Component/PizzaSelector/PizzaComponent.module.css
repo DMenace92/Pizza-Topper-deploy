@@ -1,85 +1,87 @@
-.mainPizzaComponentWrapper{
-    display: flex;
-    justify-content: center;
-
+.mainPizzaComponentWrapper {
+  display: flex;
+  justify-content: center;
 }
-.pizzaComponentContainer{
-    margin-top: 200px;
-    background-color: #f2e8cf;
-    margin-left:85px;
+.pizzaComponentContainer {
+  margin-top: 200px;
+  background-color: #f2e8cf;
+  margin-left: 85px;
 
-    /* border:1px solid black; */
-    border-radius: 20px;
-    height:40vh;
-    width:25vw;
-    display: flex;
-    flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-
+  /* border:1px solid black; */
+  border-radius: 20px;
+  height: 40vh;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
-.pizzaHeadder{
-display: flex; 
-flex-direction: column;
+.pizzaHeadder {
+  display: flex;
+  flex-direction: column;
 
-    /* justify-content: center; */
-    
-    
-    height:5vh;
-}
-.customizeText{
-    font-family: "Indie Flower", cursive;
-    font-weight:800;
-    font-style: normal;
-text-align: center;
-color: #386641;
-margin-top:15px;
+  /* justify-content: center; */
 
+  height: 5vh;
 }
-.workMagicLine{
-    display: flex;
-    justify-content: center;
-    /* text-align: center; */
+.customizeText {
+  font-family: "Indie Flower", cursive;
+  font-weight: 800;
+  font-style: normal;
+  text-align: center;
+  color: #386641;
+  margin-top: 15px;
 }
-.magicLine{
-    color:#386641;
-    background-color:#386641;
-    font-size: 2px;
-    width:60%;
-    /* justify-content: center; */
-
+.workMagicLine {
+  display: flex;
+  justify-content: center;
+  /* text-align: center; */
+}
+.magicLine {
+  color: #386641;
+  background-color: #386641;
+  font-size: 2px;
+  width: 60%;
+  /* justify-content: center; */
 }
 
 .indie-flower-regular {
-    /* font-family: "Indie Flower", cursive;
+  /* font-family: "Indie Flower", cursive;
     font-weight: 400;
     font-style: normal; */
-  }
-.pizzaBody{
-    margin-top:30px;
-    height:25vh;
-    display: flex;
-    flex-direction: row;
-    /* border:1px solid black; */
-    justify-content: center;
-    gap:70px;
-
 }
-.selectMeatSection{
-
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+.pizzaBody {
+  margin-top: 30px;
+  height: 25vh;
+  display: flex;
+  flex-direction: row;
+  /* border:1px solid black; */
+  justify-content: center;
+  gap: 70px;
 }
-.selectionBanner{
-    color:#386641;
-    font-size: 16px;
+.selectMeatSection {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
-.selectVeggieSection{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
+.selectionBanner {
+  color: #386641;
+  font-size: 16px;
 }
-.pizzaFooter{
-
+.selectVeggieSection {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
-
+.pizzaFooter {
+}
+.orderSubmitButton {
+  background-color: #bc4749;
+  color: white;
+  width: 80%;
+  height: 7vh;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 10px;
+}

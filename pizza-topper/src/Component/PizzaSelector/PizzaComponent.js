@@ -1,8 +1,13 @@
 import React, { useRef } from "react";
 import Styles from "./PizzaComponent.module.css";
+import usePizzaStore from "../../stores/usePizzaStore";
+import useTerminalStore from "../../stores/useTerminalStore";
 
-const PizzaContainer = (props) => {
-  // Refs for each checkbox
+const PizzaContainer = () => {
+  const { selectedToppings, toggleTopping, saveToppingToBackend, pizzaId } =
+    usePizzaStore();
+  const { addTerminalMessage, addSubmitedMessage } = useTerminalStore();
+
   const pepperoniCheckbox = useRef(null);
   const sausageCheckbox = useRef(null);
   const hamCheckbox = useRef(null);
@@ -12,44 +17,23 @@ const PizzaContainer = (props) => {
   const pineappleCheckbox = useRef(null);
   const spinachCheckbox = useRef(null);
 
-  const { createNewMessage, onToppingChange } = props;
-  console.log(props);
-
-  //create new messages will take checked and the name string
-
   const handleInputChange = (e) => {
-    // Get the current checked state of each checkbox
-    console.log(e.target);
-    console.log(e.target.name);
-    console.log(e.target.checked);
-    createNewMessage(
-      e.target.name + e.target.checked
-        ? " added to pizza"
-        : " removed from pizza"
-    );
-    const selectedToppings = {
-      pepperoni: pepperoniCheckbox.current.checked,
-      sausage: sausageCheckbox.current.checked,
-      ham: hamCheckbox.current.checked,
-      chicken: chickenCheckbox.current.checked,
-      bacon: baconCheckbox.current.checked,
-      olive: oliveCheckbox.current.checked,
-      pineapple: pineappleCheckbox.current.checked,
-      spinach: spinachCheckbox.current.checked,
-    };
-
-    // Log the updated toppings
-    // console.log('Selected Toppings:', selectedToppings);
-
-    // Call the parent function with the updated state if provided
-    if (onToppingChange) {
-      onToppingChange(selectedToppings);
-    }
+    const terminalMessage = e.target.checked
+      ? e.target.name + " added to pizza"
+      : e.target.name + " removed from pizza";
+    toggleTopping(e.target.name);
+    addTerminalMessage(terminalMessage, "topping");
   };
 
-  const handleInputSubmit = (e) => {
+  const handleInputSubmit = async (e) => {
     e.preventDefault();
-    handleInputChange();
+    const response = await saveToppingToBackend(selectedToppings);
+    if (response) {
+      const pizzaId = response;
+      addSubmitedMessage(pizzaId);
+    } else {
+      console.log("did not work");
+    }
   };
 
   return (
@@ -61,89 +45,102 @@ const PizzaContainer = (props) => {
             <h6 className={Styles.magicLine}>_________________</h6>
           </div>
         </div>
-        <div className={Styles.pizzaBody}>
-          <div className={Styles.selectMeatSection}>
-            <h4 className={Styles.selectionBanner}>Meat</h4>
-            <label>
-              <input
-                type="checkbox"
-                ref={pepperoniCheckbox}
-                name="pepperoni"
-                onChange={handleInputChange}
-              />
-              Pepperoni
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                ref={sausageCheckbox}
-                name="sausage"
-                onChange={handleInputChange}
-              />
-              Sausage
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                ref={hamCheckbox}
-                name="ham"
-                onChange={handleInputChange}
-              />
-              Ham
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                ref={chickenCheckbox}
-                name="chicken"
-                onChange={handleInputChange}
-              />
-              Chicken
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                ref={baconCheckbox}
-                name="bacon"
-                onChange={handleInputChange}
-              />
-              Bacon
-            </label>
+        <form onSubmit={handleInputSubmit}>
+          {/* {handleAfter} */}
+          <div className={Styles.pizzaBody}>
+            <div className={Styles.selectMeatSection}>
+              <h4 className={Styles.selectionBanner}>Meat</h4>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={pepperoniCheckbox}
+                  name="pepperoni"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["pepperoni"]}
+                />
+                Pepperoni
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={sausageCheckbox}
+                  name="sausage"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["sausage"]}
+                />
+                Sausage
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={hamCheckbox}
+                  name="ham"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["ham"]}
+                />
+                Ham
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={chickenCheckbox}
+                  name="chicken"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["chicken"]}
+                />
+                Chicken
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={baconCheckbox}
+                  name="bacon"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["bacon"]}
+                />
+                Bacon
+              </label>
+            </div>
+            <div className={Styles.selectVeggieSection}>
+              <h4 className={Styles.selectionBanner}>Veggies</h4>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={oliveCheckbox}
+                  name="olive"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["olive"]}
+                />
+                Olives
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={pineappleCheckbox}
+                  name="pineapple"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["pineapple"]}
+                />
+                Pineapple
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  ref={spinachCheckbox}
+                  name="spinach"
+                  onChange={handleInputChange}
+                  checked={selectedToppings["spinach"]}
+                />
+                Spinach
+              </label>
+            </div>
           </div>
-          <div className={Styles.selectVeggieSection}>
-            <h4 className={Styles.selectionBanner}>Veggies</h4>
-            <label>
-              <input
-                type="checkbox"
-                ref={oliveCheckbox}
-                name="olive"
-                onChange={handleInputChange}
-              />
-              Olives
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                ref={pineappleCheckbox}
-                name="pineapple"
-                onChange={handleInputChange}
-              />
-              Pineapple
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                ref={spinachCheckbox}
-                name="spinach"
-                onChange={handleInputChange}
-              />
-              Spinach
-            </label>
+          <div className={Styles.pizzaFooter}>
+            <button type="submit" className={Styles.orderSubmitButton}>
+              Order
+            </button>
           </div>
-        </div>
-        <div className={Styles.pizzaFooter}>
-          <button onClick={handleInputSubmit}>Submit</button>
-        </div>
+        </form>
       </div>
     </div>
   );

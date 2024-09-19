@@ -1,34 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Styles from "./TerminalView.module.css";
-import createNewMessage from "../../Actions/TerminalActions";
+import useTerminalStore from "../../stores/useTerminalStore";
+import usePizzaStore from "../../stores/usePizzaStore";
 
+const TerminalView = () => {
+  const { terminalMessages, finalTerminalMessage } = useTerminalStore();
+  const { pizzaId } = usePizzaStore();
 
-const TerminalView = (props) => {
-  const { newMessage} = props;
-  const [actionMessage, setActionMessage]=useState({})
-  // console.log("props.newMessage: ", props.newMessage.terminalMessages);
-  // console.log(props.newMessage.terminalMessages, 'final stretch')
-// useEffect(()=>{
+  const [showMessage, setShowMessage] = useState(false);
 
-//     let newObjMessage = { ...newMessage };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMessage(true);
+    }, 7000);
 
-//     for (const [topping, selected] of Object.entries(props.pizzaData)) {
-//       if (selected) {
-//         newObjMessage.terminalMessages.push({message:topping, type:"topping_change"})
-//         let testRun = createNewMessage(topping, "topping_change")
-//         setActionMessage(testRun.payload)
-//         console.log(testRun, "look here")
-//        }
-
-//     }
-
-
-
-//   },[newMessage, props.pizzaData])
-
-  console.log(actionMessage)
-
-
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className={Styles.terminalViewWrapper}>
@@ -38,36 +25,32 @@ const TerminalView = (props) => {
         </div>
 
         <div className={Styles.terminalViewTerminal}>
-          {props.newMessage.terminalMessages &&
-          // using index to eliminate duplicate keys
-            props.newMessage.terminalMessages.map((terminalMessage, index) => {
-              const getTextStyle = () => {
-                switch (terminalMessage.type) {
-                  case "topping_change":
-                    return Styles.toppingDisplay;
-                  default:
-                    return Styles.toppingDisplay;
-                }
-              };
-
-              const textStyle = getTextStyle();
-
+          {terminalMessages.length > 0 &&
+            terminalMessages.map((terminalMessage, index) => {
               return (
-            //     <p className={textStyle} key={`${terminalMessage.message}-${index}`}>
-            //       {terminalMessage.message}
-
-
-            //     </p>
-            //   );
-            // })}
-
-            <p className={textStyle} key={`${actionMessage.message}-${index}`}>
-            {actionMessage.message}
-
-
-          </p>
-        );
-      })}
+                <div key={index}>
+                  <h6
+                    className={
+                      terminalMessage.message.includes("remove")
+                        ? Styles.toppingRemovedDisplay
+                        : Styles.toppingDisplay
+                    }
+                  >
+                    {" "}
+                    {terminalMessage.message}
+                  </h6>
+                </div>
+              );
+            })}
+          {finalTerminalMessage.length > 0 &&
+            finalTerminalMessage.map((messageObj, index) => (
+              <div key={index}>
+                <h6 className={Styles.toppingDisplay}>
+                  <p>Loading...</p>
+                  {showMessage && <p>{messageObj.message}</p>}
+                </h6>
+              </div>
+            ))}
         </div>
       </div>
     </div>

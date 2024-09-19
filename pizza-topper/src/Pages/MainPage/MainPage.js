@@ -1,31 +1,21 @@
-import React, {useState} from 'react'
-// import PizzaContainer from '../../Component/PizzaSelector/PizzaComponent'
-import PizzaContainer from '../../Container/pizzaContainer'
-// import TerminalView from '../../Component/TerminalView/TerminalView'
-// import TerminalView from '../../Container/PizzaTerminalFetch'
-import TerminalView from '../../Container/messageContainer'
-import Styles from './MainPage.module.css'
+import React from "react";
+import PizzaContainer from "../../Component/PizzaSelector/PizzaComponent";
+import TerminalView from "../../Component/TerminalView/TerminalView";
 
-const MainPage =()=>{
+import Styles from "./MainPage.module.css";
 
-    const [pizzaData, setPizzaData] = useState({});
-
-    const handleToppingChange = (updatedToppings) => {
-      setPizzaData(updatedToppings);
-    };
-    return(
-        <div>
-            <div className={Styles.mainPageWrapper}>
-            <div className={Styles.leftComponentArea}>
-            <PizzaContainer onToppingChange={handleToppingChange}/>
-            </div>
-            <div className={Styles.rightComponentArea}>
-                
-                <TerminalView pizzaData={pizzaData}/>
-            </div>
-            </div>
-
+const MainPage = () => {
+  return (
+    <div>
+      <div className={Styles.mainPageWrapper}>
+        <div className={Styles.leftComponentArea}>
+          <PizzaContainer />
         </div>
-    )
-}
+        <div className={Styles.rightComponentArea}>
+          <TerminalView />
+        </div>
+      </div>
+    </div>
+  );
+};
 export default MainPage;
