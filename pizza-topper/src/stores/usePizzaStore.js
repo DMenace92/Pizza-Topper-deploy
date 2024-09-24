@@ -59,6 +59,12 @@ const usePizzaStore = create((set, get) => ({
       console.log("Error has occurred: ", e);
     }
   },
+  updatePizzaOrder: async (pizzaId, newData) => {
+    try {
+    } catch (e) {
+      console.log("did not work: ", e);
+    }
+  },
 }));
 
 export default usePizzaStore;
