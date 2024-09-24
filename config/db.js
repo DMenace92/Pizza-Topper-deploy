@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
-const config = require("../config/config");
+const config = require("./config");
 
 let newConfig = config;
 
-mongoose.connect(newConfig, {
-  // useNewUrlParser: true,
-  // useCreateIndex: true,
-  // useFindAndModify: false,
-  // useUnifiedTopology: true,
-});
+console.log("newConfig: ", newConfig);
+
+if (newConfig) {
+  mongoose.connect(newConfig, {
+    // useNewUrlParser: true,
+    // useCreateIndex: true,
+    // useFindAndModify: false,
+    // useUnifiedTopology: true,
+  });
+}
 
 mongoose.connection.on("connected", () => {
   console.log("connected to mongodb");
