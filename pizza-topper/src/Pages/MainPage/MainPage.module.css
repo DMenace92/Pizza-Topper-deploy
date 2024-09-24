@@ -1,6 +1,7 @@
 .mainPageWrapper {
   display: flex;
   width: 100vw;
+  height: 100vh;
 }
 .leftComponentArea {
   flex: 1;
@@ -15,4 +16,10 @@
   align-items: center;
   justify-content: center;
   /* background-color: red; */
+}
+
+@media screen and (max-width: 700px) {
+  .mainPageWrapper {
+    flex-direction: column;
+  }
 }
