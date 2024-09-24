@@ -16,13 +16,6 @@ brew services start mongodb-community@7.0
 npm run devlop
 ```
 
-Within the repo in the root run:
-
-```bash
-npm i
-nodemon
-```
-
 for frontend cd to pizza-topper:
 
 ```bash
