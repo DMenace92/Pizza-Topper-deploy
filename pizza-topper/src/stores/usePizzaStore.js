@@ -48,6 +48,7 @@ const usePizzaStore = create((set, get) => ({
   },
 
   getSinglePizzaOrder: async (pizzaId) => {
+    console.log(pizzaId);
     try {
       const response = await axios.get(
         `http://localhost:9000/fetch/pizza/${pizzaId}` // Interpolate the pizzaId in the URL

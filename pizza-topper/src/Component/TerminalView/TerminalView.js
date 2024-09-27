@@ -6,8 +6,10 @@ import usePizzaStore from "../../stores/usePizzaStore";
 const TerminalView = () => {
   const { terminalMessages, finalTerminalMessage } = useTerminalStore();
   const { pizzaId } = usePizzaStore();
+  console.log(finalTerminalMessage, "right here");
 
   const [showMessage, setShowMessage] = useState(false);
+  let url = `http://localhost:3000/order_complete/${pizzaId}`;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -47,7 +49,15 @@ const TerminalView = () => {
               <div key={index}>
                 <h6 className={Styles.toppingDisplay}>
                   <p>Loading...</p>
-                  {showMessage && <p>{messageObj.message}</p>}
+                  {showMessage && (
+                    <p>
+                      {messageObj.time} - Order confermed! you can follow your
+                      order at{" "}
+                      <a href={url} target="_blank">
+                        {messageObj.message}
+                      </a>
+                    </p>
+                  )}
                 </h6>
               </div>
             ))}

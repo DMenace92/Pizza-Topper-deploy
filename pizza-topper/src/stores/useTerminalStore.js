@@ -37,13 +37,14 @@ const useTerminalStore = create((set, get) => ({
   addSubmitedMessage: (pizza) => {
     let newPizza = pizza.data.pizza._id;
     const timeStamp = formatCurrentTime();
-    const finalMessage = `${timeStamp} -  order confirmed! You can follow you order at http://localhost:9000/${newPizza}`;
+    const time = timeStamp;
+    const finalMessage = `http://localhost:3000/${newPizza}`;
     // console.log(finalMessage);
 
     set((state) => ({
       finalTerminalMessage: [
         ...state.finalTerminalMessage,
-        { message: finalMessage },
+        { time: time, message: finalMessage },
       ],
     }));
   },
