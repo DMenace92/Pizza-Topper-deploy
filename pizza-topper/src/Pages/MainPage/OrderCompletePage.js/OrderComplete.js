@@ -15,19 +15,23 @@ const OrderComplete = () => {
 
   return (
     <div className={Styles.testTextNew}>
-      <div className={Styles.orderStatusView}>
-        {pizzas.length > 0 &&
-          pizzas.map((pizza, index) => (
-            <div key={index}>
-              <h6 className={Styles.OrderTextOutput}>{pizza._id}</h6>
-              <h4>{pizza.pepperoni}</h4>
-            </div>
-          ))}
+      <div className={Styles.receiptViewHolder}>
+        <div className={Styles.orderStatusView}>
+          <h1>Pizza Order!!!</h1>
+          <hr></hr>
+          {pizzas.length > 0 &&
+            pizzas.map((pizza, index) => (
+              <div key={index}>
+                <h6 className={Styles.OrderTextOutput}></h6>
+                <h4>{pizza}</h4>
+              </div>
+            ))}
+        </div>
+        <div className={Styles.orderButtonHolder}>
+          <button>update</button>
+          <button>delete</button>
+        </div>
       </div>
-      {/* <div className={Styles.orderButtonHolder}>
-        <button>update</button>
-        <button>delete</button>
-      </div> */}
     </div>
   );
 };

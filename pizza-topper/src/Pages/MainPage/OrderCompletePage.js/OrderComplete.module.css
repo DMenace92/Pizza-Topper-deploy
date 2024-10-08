@@ -1,8 +1,50 @@
 .testTextNew {
   border: 1px solid black;
-  height: 300px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* flex-direction: column; */
+}
+.receiptViewHolder {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.orderStatusView {
+  background-color: white;
+  height: 80vh;
+  width: 23vw;
+  /* background: repeating-linear-gradient(
+    to right,
+    rgb(255, 255, 255) -5px,
+    rgb(236, 236, 236) 5px,
+    transparent 1px,
+    transparent 1px
+  ); */
+
+  /* border-bottom: 3px dotted black; */
+}
+.orderStatusView::after {
+  position: relative;
+  bottom: 30px;
+  border-bottom: 2px solid black;
+  /* background: repeating-linear-gradient(
+    to right,
+    black 0,
+    black 2px,
+    transparent 2px,
+    transparent 4px
+  ); */
 }
 
 .OrderTextOutput {
   color: black;
+}
+.orderButtonHolder {
+  padding: 20px;
+}
+
+.orderButtonHolder button {
+  margin: 10px;
 }

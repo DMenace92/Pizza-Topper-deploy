@@ -54,7 +54,7 @@ const usePizzaStore = create((set, get) => ({
         `http://localhost:9000/fetch/pizza/${pizzaId}` // Interpolate the pizzaId in the URL
       );
       set((state) => ({
-        pizzas: [...state.pizzas, response.data], // Append the fetched pizza data
+        pizzas: [response.data], // Append the fetched pizza data
       }));
     } catch (e) {
       console.log("Error has occurred: ", e);
@@ -62,6 +62,12 @@ const usePizzaStore = create((set, get) => ({
   },
   updatePizzaOrder: async (pizzaId, newData) => {
     try {
+      const response = await axios.put(
+        `http://localhost:9000/update/pizza/${pizzaId}`
+      );
+      set((state) => ({
+        updatePizza: [response.data],
+      }));
     } catch (e) {
       console.log("did not work: ", e);
     }

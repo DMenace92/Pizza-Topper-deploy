@@ -1,92 +1,84 @@
 .App {
   text-align: center;
-  display: flex;
+  /* display: flex; */
   margin-top: 0px;
-  background-image: url('./utils/pizzaOven.png') ;
-  background-size:cover;
+  background-image: url("./utils/pizzaOven.png");
+  background-size: cover;
 }
-
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.App {
-  display: flex;
-}
 
 .rightContainer {
   flex: 1;
   /* border:1px solid black; */
-  width:50vw;
-  height:80vh;
-  padding:30px;
+  width: 50vw;
+  height: 80vh;
+  padding: 30px;
 }
-.leftContainer{
+.leftContainer {
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
   /* border:1px solid black; */
-  width:50vw;
-  height:90vh;
+  width: 50vw;
+  height: 90vh;
 }
-.pizzaItem{
+.pizzaItem {
   display: flex;
-  flex:2;
-  margin:5px;
+  flex: 2;
+  margin: 5px;
   /* border:1px solid black; */
   border-radius: 10px;
-  height:250px;
-  width:300px;
+  height: 250px;
+  width: 300px;
   justify-content: space-between;
 }
-.meatSide{
+.meatSide {
   /* display: flex; */
   position: relative;
   /* flex:2; */
   float: right;
   flex-direction: column;
-
 }
-.veggieSide{
+.veggieSide {
   position: relative;
   /* display: flex; */
   /* margin-left:80px; */
   /* flex:1; */
   float: left;
   flex-direction: column;
-
 }
-.buttonDesign{
+.buttonDesign {
   /* position: absolute; */
-  height:50px;
-  width:60px;
+  height: 50px;
+  width: 60px;
   flex-direction: row;
   float: left;
   position: relative;
-  bottom:-190px;
-  right:50px;
-  
-/* display: flex; */
-/* position: relative; */
+  bottom: -190px;
+  right: 50px;
 
-/* bottom: 0px; */
-  
+  /* display: flex; */
+  /* position: relative; */
+
+  /* bottom: 0px; */
 }
-.buttonDesign1{
+.buttonDesign1 {
   /* position: absolute; */
-  height:50px;
+  height: 50px;
   flex-direction: row;
   float: left;
   position: relative;
-  bottom:-190px;
-  right:10px;
-/* display: flex; */
-/* position: relative; */
+  bottom: -190px;
+  right: 10px;
+  /* display: flex; */
+  /* position: relative; */
 
-/* bottom: 0px; */
-  
+  /* bottom: 0px; */
 }
 .toppingCategory {
   display: flex;
@@ -96,7 +88,6 @@
 .meatToppings,
 .veggieToppings {
   margin-bottom: 10px;
- 
 }
 
 .toppingLabel {
@@ -119,8 +110,8 @@ input[type="checkbox"] {
   width:100px;
   display: flex;
   /* flex-direction: row; */
-  /* flex-wrap: wrap; */
-  
+/* flex-wrap: wrap; */
+
 /* } */
 /* .veggieToppings{
   width:100px;
