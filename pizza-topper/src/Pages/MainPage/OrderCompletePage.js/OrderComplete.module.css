@@ -11,6 +11,13 @@
   flex-direction: column;
   text-align: center;
 }
+
+.displayRecipt{
+
+}
+.displayReciptNone{
+  display: none;
+}
 .orderStatusView {
   background-color: white;
   height: 80vh;
