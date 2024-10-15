@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import axios from "axios";
+
 // import { response } from "express";
+// const UI_ROUTE = process.env.UI_ROUTE;
 
 const usePizzaStore = create((set, get) => ({
   selectedToppings: {
@@ -27,14 +29,14 @@ const usePizzaStore = create((set, get) => ({
       selectedToppings: updatedSelectedToppings,
     });
   },
-
   saveToppingToBackend: async () => {
     try {
       const selectedToppings = get().selectedToppings;
       const response = await axios.post(
-        "http://localhost:9000/create/pizza",
+        `https://9jjl6p-9000.csb.app/create/pizza`,
         selectedToppings
       );
+      console.log(`${process.env.UI_ROUTE}/create/pizza`);
       const pizzaId = response.data.pizza._id;
       set({
         pizzaId,
@@ -51,7 +53,7 @@ const usePizzaStore = create((set, get) => ({
     console.log(pizzaId);
     try {
       const response = await axios.get(
-        `http://localhost:9000/fetch/pizza/${pizzaId}` // Interpolate the pizzaId in the URL
+        `https://9jjl6p-9000.csb.app/fetch/pizza/${pizzaId}` // Interpolate the pizzaId in the URL
       );
       set((state) => ({
         pizzas: [response.data], // Append the fetched pizza data
@@ -60,18 +62,18 @@ const usePizzaStore = create((set, get) => ({
       console.log("Error has occurred: ", e);
     }
   },
-  updatePizzaOrder: async (pizzaId, newData) => {
-    try {
-      const response = await axios.put(
-        `http://localhost:9000/update/pizza/${pizzaId}`
-      );
-      set((state) => ({
-        updatePizza: [response.data],
-      }));
-    } catch (e) {
-      console.log("did not work: ", e);
-    }
-  },
+  // updatePizzaOrder: async (pizzaId, newData) => {
+  //   try {
+  //     const response = await axios.put(
+  //       `http://localhost:9000/update/pizza/${pizzaId}`
+  //     );
+  //     set((state) => ({
+  //       updatePizza: [response.data],
+  //     }));
+  //   } catch (e) {
+  //     console.log("did not work: ", e);
+  //   }
+  // },
 }));
 
 export default usePizzaStore;

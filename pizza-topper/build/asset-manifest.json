@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.dbb870e1.css",
-    "main.js": "/static/js/main.d2e1b28c.js",
+    "main.css": "/static/css/main.725845d1.css",
+    "main.js": "/static/js/main.b76be015.js",
     "static/media/pizzaOven.png": "/static/media/pizzaOven.68c1935c30631648bf74.png",
     "index.html": "/index.html",
-    "main.dbb870e1.css.map": "/static/css/main.dbb870e1.css.map",
-    "main.d2e1b28c.js.map": "/static/js/main.d2e1b28c.js.map"
+    "main.725845d1.css.map": "/static/css/main.725845d1.css.map",
+    "main.b76be015.js.map": "/static/js/main.b76be015.js.map"
   },
   "entrypoints": [
-    "static/css/main.dbb870e1.css",
-    "static/js/main.d2e1b28c.js"
+    "static/css/main.725845d1.css",
+    "static/js/main.b76be015.js"
   ]
 }

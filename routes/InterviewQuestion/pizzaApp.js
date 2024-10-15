@@ -13,7 +13,7 @@ Router.post("/create/pizza", async (req, res) => {
     res.status(200).send({ pizza });
   } catch (e) {
     res.status(400).send(e);
-    console.log("did not work ");
+    console.log("did not work ", e);
   }
 });
 //get many

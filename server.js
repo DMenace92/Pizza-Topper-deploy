@@ -1,20 +1,17 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const pizzaRouter = require('./routes/InterviewQuestion/pizzaApp')
-const bodyParser = require('body-parser');
-const cors = require('cors')
-const path = require('path')
-require("./config/db")
-require('dotenv').config();
-
-
-
+const pizzaRouter = require("./routes/InterviewQuestion/pizzaApp");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const path = require("path");
+require("./config/db");
+require("dotenv").config();
 
 const PORT = process.env.PORT || 9000;
-app.use(cors())
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(pizzaRouter)
+app.use(pizzaRouter);
 
 // const bodyParser = require('body-parser');
 
@@ -24,24 +21,25 @@ app.use(pizzaRouter)
 
 // Route to handle form submissions
 
-// ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "pizza-topper", "build")))
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "pizza-topper", "build")));
 
-app.use(express.static(path.join(__dirname, '../pizza-topper/build')))
-app.get('*', (req,res)=> res.sendFile(path.join(__dirname, 'pizza_topper',"build", "index.html")))
+app.use(express.static(path.join(__dirname, "../pizza-topper/build")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "pizza_topper", "build", "index.html"))
+);
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    next();
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
 });
 
-
 app.listen(PORT, (err) => {
-    if (err) {
-        throw err;
-    }
-    console.log(`Server running on Port ${PORT}`)
+  if (err) {
+    throw err;
+  }
+  console.log(`Server running on Port ${PORT}`);
 });
 //my work email is enwiya.dev@gmail.com
